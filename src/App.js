@@ -2,24 +2,9 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 
-const user = {
-  name : 'José Manuel',
-  surname: 'Lucas Muñoz',
-  address : 'C\ de la Fantasía, 7, Pilar de la Muela (Mordor)',
-  phone: '666666666',
-};
+const myArr = [1,2,3,4,5,6,7,8,9];
 
-const { name, surname, address, phone } = user;
-
-const sayHi = hiText => `${hiText}, ${name}!`;
-
-const sayHi2 = (hiText) => {
-  return `${hiText}, ${name}!`;
-};
-
-const sayHi3 = function (hiText) {
-  return `${hiText}, ${name}!`;
-};
+const result1 = myArr.map(v => `${v * 2}, `);
 
 class App extends Component {
   render() {
@@ -27,11 +12,12 @@ class App extends Component {
       <div className="App">
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">{sayHi3('Hola')}</h1>
+          <h1 className="App-title">KeepCoding</h1>
         </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+        <div className="App-intro">
+          <p><b>myArr:</b> {myArr}</p>
+          <p><b>Result1:</b> {result1}</p>
+        </div>
       </div>
     );
   }
