@@ -2,16 +2,23 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 
-const myArr = [1,2,3,4,5,6,7,8,9];
+function sumParams(...params) {
+  return params.reduce((acc, curr) => acc + curr, 0);
+}
 
-const result1 = myArr.map(v => v * 2);
+const myObj = {
+  d: 'fuu',
+  c: 'foo',
+  b: 'bar',
+  a: 'baz',
+};
 
-const result2 = myArr.filter(v => v % 2 === 0);
+const { a, b, ...rest } = myObj;
 
-const addAppend = arr => arr.map((v, k) => {
-  const append = k < arr.length - 1 ? ', ' : '';
-  return `${v}${append}`;
-});
+const newObj = {
+  ...rest,
+  d: 'fuh',
+};
 
 class App extends Component {
   render() {
@@ -22,9 +29,10 @@ class App extends Component {
           <h1 className="App-title">KeepCoding</h1>
         </header>
         <div className="App-intro">
-          <p><b>myArr:</b> {addAppend(myArr)}</p>
-          <p><b>Result1:</b> {addAppend(result1)}</p>
-          <p><b>Result2:</b> {addAppend(result2)}</p>
+          <p>{a} {b} {JSON.stringify(rest)}</p>
+          <p>{JSON.stringify(newObj)}</p>
+          <p>{JSON.stringify(rest)}</p>
+          <p>{sumParams(1,2,3,4)}</p>
         </div>
       </div>
     );
