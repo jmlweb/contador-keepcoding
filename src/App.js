@@ -32,7 +32,7 @@ const AppIntro = ({ children }) => (
 );
 
 AppIntro.propTypes = {
-  children: PropTypes.arrayOf(PropTypes.string).isRequired,
+  children: PropTypes.arrayOf(PropTypes.oneOfType([PropTypes.string, PropTypes.number])).isRequired,
 };
 
 const App = () => (
@@ -44,12 +44,7 @@ KeepCoding
       </h1>
     </header>
     <AppIntro>
-      {[
-        'hola',
-        JSON.stringify(newObj),
-        JSON.stringify(rest),
-        sumParams(1, 2, 3, 4),
-      ]}
+      {['hola', JSON.stringify(newObj), JSON.stringify(rest), sumParams(1, 2, 3, 4)]}
     </AppIntro>
   </div>
 );
