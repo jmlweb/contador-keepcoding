@@ -20,28 +20,31 @@ const newObj = {
   d: 'fuh',
 };
 
+const AppIntro = ({ children }) => (
+  <div className="App-intro">
+    {children.map(item => (
+      <p>
+        {item}
+      </p>
+    ))}
+  </div>
+);
+
 const App = () => (
   <div className="App">
     <header className="App-header">
       <img src={logo} className="App-logo" alt="logo" />
       <h1 className="App-title">
-        KeepCoding
+KeepCoding
       </h1>
     </header>
-    <div className="App-intro">
-      <p>
-        {`${a} ${b} ${JSON.stringify(rest)}`}
-      </p>
-      <p>
-        {JSON.stringify(newObj)}
-      </p>
-      <p>
-        {JSON.stringify(rest)}
-      </p>
-      <p>
-        {sumParams(1, 2, 3, 4)}
-      </p>
-    </div>
+    <AppIntro>
+      {[
+        JSON.stringify(newObj),
+        JSON.stringify(rest),
+        sumParams(1, 2, 3, 4),
+      ]}
+    </AppIntro>
   </div>
 );
 
