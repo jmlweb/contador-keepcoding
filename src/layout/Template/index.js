@@ -25,4 +25,10 @@ const Template = ({ children, logo }) => (
   </StyledWrapper>
 );
 
+
+Template.propTypes = {
+  ...Header.propTypes,
+  ...Body.propTypes,
+};
+
 export default Template;
