@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import logo from './logo.svg';
 import './App.css';
 
@@ -23,12 +24,16 @@ const newObj = {
 const AppIntro = ({ children }) => (
   <div className="App-intro">
     {children.map(item => (
-      <p>
+      <p key={item}>
         {item}
       </p>
     ))}
   </div>
 );
+
+AppIntro.propTypes = {
+  children: PropTypes.arrayOf(PropTypes.string).isRequired,
+};
 
 const App = () => (
   <div className="App">
@@ -40,6 +45,7 @@ KeepCoding
     </header>
     <AppIntro>
       {[
+        'hola',
         JSON.stringify(newObj),
         JSON.stringify(rest),
         sumParams(1, 2, 3, 4),
