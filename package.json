@@ -12,6 +12,7 @@
     "styled-map": "^2.0.1"
   },
   "devDependencies": {
+    "babel-eslint": "^8.2.5",
     "eslint": "^5.1.0",
     "eslint-config-airbnb": "^17.0.0",
     "eslint-plugin-import": "^2.13.0",

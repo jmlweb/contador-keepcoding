@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { rgba } from 'polished';
-import styled, { withTheme } from 'styled-components';
+import styled from 'styled-components';
 
 const StyledHeader = styled.header`
   background: ${({ theme }) => theme.colors.black};
@@ -25,11 +25,11 @@ const StyledH1 = styled.h1`
   font-size: 20px;
 `;
 
-const Header = ({ logo, theme }) => (
+const Header = ({ logo }) => (
   <StyledHeader>
     <StyledImg src={logo} alt="" />
     <StyledH1>
-      {theme.colors.success} Ejemplo de contador KeepCoding
+      Ejemplo de contador KeepCoding
     </StyledH1>
   </StyledHeader>
 );
@@ -38,4 +38,4 @@ Header.propTypes = {
   logo: PropTypes.string.isRequired,
 };
 
-export default withTheme(Header);
+export default Header;
