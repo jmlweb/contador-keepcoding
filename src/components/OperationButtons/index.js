@@ -1,17 +1,22 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import ButtonGroup from '../ButtonGroup';
 import Button from '../Button';
 
-const OperationButtons = () => (
+const OperationButtons = ({ updateCounter }) => (
   <ButtonGroup>
-    <Button type="button">
+    <Button type="button" onClick={updateCounter} value={-1}>
       -1
     </Button>
-    <Button type="button">
+    <Button type="button" onClick={updateCounter} value={1}>
       +1
     </Button>
   </ButtonGroup>
 );
+
+OperationButtons.propTypes = {
+  updateCounter: PropTypes.func.isRequired,
+};
 
 export default OperationButtons;
