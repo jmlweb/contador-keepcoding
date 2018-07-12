@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 import Template from '../../layout';
 import CounterValue from '../CounterValue';
@@ -10,6 +11,13 @@ const INITIAL_STATE = {
 };
 
 class App extends Component {
+  static propTypes = {
+    maxValue: PropTypes.number,
+  };
+
+  static defaultProps = {
+    maxValue: 10,
+  };
   constructor(props) {
     super(props);
     this.state = INITIAL_STATE;
@@ -30,10 +38,11 @@ class App extends Component {
 
   render() {
     const { value } = this.state;
+    const { maxValue } = this.props;
     return (
       <Template logo="https://keepcoding.io/es/wp-content/uploads/sites/4/2015/05/logo-keepcoding-web.png">
         <CounterValue value={value} />
-        {value > -10 && value < 10 ? (
+        {value > maxValue * -1 && value < maxValue ? (
           <OperationButtons updateCounter={this.updateCounter} removeOne={this.removeOne} />
         ) : (
           <ResetButtons resetCounter={this.resetCounter} />
