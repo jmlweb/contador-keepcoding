@@ -10,7 +10,7 @@ const StyledButton = styled.button`
   padding: 10px 15px;
   margin-top: 15px;
   &:hover {
-    background: ${({ theme }) => desaturate(0.4, theme.colors.primary)};
+    background: ${({ theme }) => desaturate(0.5, theme.colors.primary)};
   }
 `;
 
