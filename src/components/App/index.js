@@ -35,7 +35,7 @@ class App extends Component {
           };
         }
         return {};
-      })
+      });
     }, 5000);
   }
 
@@ -71,9 +71,9 @@ class App extends Component {
     const { maxValue } = this.props;
     return (
       <Template logo="https://keepcoding.io/es/wp-content/uploads/sites/4/2015/05/logo-keepcoding-web.png">
-        <CounterValue value={value} />
+        {value !== 10 && <CounterValue value={value} />}
         {value > maxValue * -1 && value < maxValue ? (
-          <OperationButtons updateCounter={this.updateCounter} removeOne={this.removeOne} />
+          <OperationButtons updateCounter={this.updateCounter} value={value} maxValue={maxValue} />
         ) : (
           <ResetButtons resetCounter={this.resetCounter} />
         )}
